@@ -9,10 +9,35 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Mesh unitMesh = null;
     [SerializeField] private Material unitMaterial = null;
 
+    // Normal GameObject
+    [SerializeField] private GameObject gameObjectPrefab = null;
+    
+    // Converted Object
+    private Entity entityPrefab;
+
+    private EntityManager entityManager;
+    private World defaultWorld;
+
     // Start is called before the first frame update
     void Start()
     {
-        MakeEntity();
+        defaultWorld = World.DefaultGameObjectInjectionWorld;
+        entityManager = defaultWorld.EntityManager;
+
+        GameObjectConversionSettings settings = GameObjectConversionSettings.FromWorld(defaultWorld, null);
+        entityPrefab = GameObjectConversionUtility.ConvertGameObjectHierarchy(gameObjectPrefab, settings);
+
+        InstantiateEntity(new float3(2f, -5f, -6f));
+    }
+
+
+    private void InstantiateEntity(float3 position)
+    {
+        Entity myEntity = entityManager.Instantiate(entityPrefab);
+        entityManager.SetComponentData(myEntity, new Translation
+        {
+            Value = position
+        });
     }
 
     private void MakeEntity()
