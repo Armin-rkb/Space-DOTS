@@ -836,8 +836,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   unitMaterial: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
-  gameObjectPrefab: {fileID: 6476127865704302320, guid: 4f4dc2bfd53f2784d90caf864025d4fb,
+  gameObjectPrefab: {fileID: 4582341742789442031, guid: aca76a6436a6b184fb4a962d299e567e,
     type: 3}
+  rows: 10
+  collums: 10
+  offset: 1.5
 --- !u!4 &1872301774
 Transform:
   m_ObjectHideFlags: 0
