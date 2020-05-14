@@ -838,8 +838,8 @@ MonoBehaviour:
   unitMaterial: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
   gameObjectPrefab: {fileID: 4582341742789442031, guid: aca76a6436a6b184fb4a962d299e567e,
     type: 3}
-  rows: 10
-  collums: 10
+  rows: 100
+  collums: 100
   offset: 1.5
 --- !u!4 &1872301774
 Transform:
