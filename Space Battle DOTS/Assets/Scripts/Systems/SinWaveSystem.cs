@@ -3,6 +3,7 @@ using Unity.Transforms;
 using Unity.Mathematics;
 
 // Derives from Component system, this will only use the main thread.
+    /*
 public class SinWaveSystem : ComponentSystem
 {
     protected override void OnUpdate()
@@ -15,3 +16,4 @@ public class SinWaveSystem : ComponentSystem
         });
     }
 }
+    */
