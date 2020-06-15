@@ -12,6 +12,7 @@ public class SinWaveSystem : ComponentSystem
         {
             float zPos = a_waveData.amplitude * math.sin((float)Time.ElapsedTime * a_moveSpeedData.Value
                 + a_trans.Value.x * a_waveData.xOffset + a_trans.Value.y * a_waveData.yOffset);
+
             a_trans.Value = new float3(a_trans.Value.x, a_trans.Value.y, zPos);
         });
     }

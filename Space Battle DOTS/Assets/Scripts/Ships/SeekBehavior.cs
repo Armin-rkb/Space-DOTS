@@ -19,22 +19,20 @@ public class SeekBehavior : MonoBehaviour
     private void Start()
     {
         velocity = Vector3.zero;
-        //GetNewTarget();
     }
 
     private void Update()
     {
         Vector3 desiredVelocity = targetPos - transform.position;
-        desiredVelocity = desiredVelocity.normalized * MaxVelocity;
+        desiredVelocity = desiredVelocity.normalized * MaxVelocity; //"(70.1, 70.1, 335.6)"
 
-        Vector3 steering = desiredVelocity - velocity;
-        steering = Vector3.ClampMagnitude(steering, MaxForce);
-        steering /= Mass;
+        Vector3 steering = desiredVelocity - velocity;  //"(70.1, 70.1, 335.6)"
+        steering = Vector3.ClampMagnitude(steering, MaxForce); //"(40.1, 40.1, 191.8)"
+        steering /= Mass; //"(2.7, 2.7, 12.8)"
 
-        velocity = Vector3.ClampMagnitude(velocity + steering, MaxVelocity);
-        transform.position += velocity * Time.deltaTime;
-        transform.forward = velocity.normalized;
-        //transform.rotation = Quaternion.LookRotation(velocity.normalized);
+        velocity = Vector3.ClampMagnitude(velocity + steering, MaxVelocity); //"(2.7, 2.7, 12.8)"
+        transform.position += velocity * Time.deltaTime; //"(0.1, 0.1, -378.3)"
+        transform.forward = velocity.normalized; //"(0.2, 0.2, 1.0)"
 
         if (TargetReached())
         {
