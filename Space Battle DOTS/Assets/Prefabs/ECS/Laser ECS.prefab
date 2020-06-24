@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -3483926536765115479}
   - component: {fileID: -960034513495607572}
   - component: {fileID: -5758014205634001298}
+  - component: {fileID: 2452645803191526013}
   m_Layer: 0
   m_Name: Laser ECS
   m_TagString: Untagged
@@ -235,3 +236,17 @@ MonoBehaviour:
     x: 0
     y: 0
     z: 0
+--- !u!114 &2452645803191526013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3663734090544033847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10c53c288baf2ae46ad484ccb5309203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsToDestroy: 2.5
+  timeAlive: 0
