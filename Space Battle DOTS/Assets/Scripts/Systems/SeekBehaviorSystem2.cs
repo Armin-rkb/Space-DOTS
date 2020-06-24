@@ -1,19 +1,28 @@
-﻿/*
+﻿using Unity.Burst;
+using Unity.Collections;
 using Unity.Entities;
-using Unity.Transforms;
-using Unity.Mathematics;
 using Unity.Jobs;
-using Unity.Entities.UniversalDelegates;
-using System.Numerics;
-using UnityEngine;
-using System;
+using Unity.Mathematics;
+using Unity.Transforms;
 
 // Derives from Component system, this will only use the main thread.
-public class SeekBehaviorSystem : ComponentSystem
+public class SeekBehaviorSystem2 : SystemBase
 {
+    protected override void OnStartRunning()
+    {
+        Unity.Mathematics.Random rand = new Unity.Mathematics.Random((uint)UnityEngine.Random.Range(1, 1000000));
+
+        Entities.ForEach((ref Translation a_trans, ref Rotation a_rot, ref SeekBehaviorData a_seekData) =>
+        {
+            a_trans.Value = rand.NextFloat3(-a_seekData.targetMaxRange, a_seekData.targetMaxRange);
+            GetNewTarget(ref a_seekData, rand.NextFloat3(-a_seekData.targetMaxRange, a_seekData.targetMaxRange));
+        }).Run();
+    }
+
     protected override void OnUpdate()
     {
         float deltaTime = Time.DeltaTime;
+        Unity.Mathematics.Random rand = new Unity.Mathematics.Random((uint)UnityEngine.Random.Range(1, 1000000));
 
         Entities.ForEach((ref Translation a_trans, ref Rotation a_rot, ref SeekBehaviorData a_seekData) =>
         {
@@ -38,20 +47,18 @@ public class SeekBehaviorSystem : ComponentSystem
             a_trans.Value += a_seekData.velocity * deltaTime;
 
             a_rot.Value = quaternion.LookRotationSafe(math.normalize(a_seekData.velocity), math.up());
-
+            
             if (TargetReached(in a_trans, in a_seekData))
             {
-                GetNewTarget(ref a_seekData);
+                GetNewTarget(ref a_seekData, rand.NextFloat3(-a_seekData.targetMaxRange, a_seekData.targetMaxRange));
             }
-        });
+        }).Schedule();
     }
 
     // Sets a new random target position.
-    private static void GetNewTarget(ref SeekBehaviorData a_seekData)
+    private static void GetNewTarget(ref SeekBehaviorData a_seekData, float3 a_randfloat3)
     {
-        Unity.Mathematics.Random rand = new Unity.Mathematics.Random((uint)UnityEngine.Random.Range(1, 1000000));
-
-        a_seekData.targetPos = rand.NextFloat3(-a_seekData.targetMaxRange, a_seekData.targetMaxRange);
+        a_seekData.targetPos = a_randfloat3;
     }
 
     // Returns true when within close distance of target.
@@ -64,5 +71,3 @@ public class SeekBehaviorSystem : ComponentSystem
         return false;
     }
 }
-
-*/
