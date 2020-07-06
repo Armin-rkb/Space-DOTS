@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 518820955526130907}
   - component: {fileID: 5918188488957294668}
   - component: {fileID: -2701155313999344888}
+  - component: {fileID: -3296982215521608910}
   - component: {fileID: -3483926536765115479}
   - component: {fileID: -960034513495607572}
   - component: {fileID: -5758014205634001298}
-  - component: {fileID: 2452645803191526013}
+  - component: {fileID: 1876554142610932228}
   m_Layer: 0
   m_Name: Laser ECS
   m_TagString: Untagged
@@ -97,6 +98,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConversionMode: 0
+--- !u!114 &-3296982215521608910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3663734090544033847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d6bf37cfc44615409bfca6ec2a4cb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-3483926536765115479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +117,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3663734090544033847}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ccea9ea98e38942e0b0938c27ed1903e, type: 3}
   m_Name: 
@@ -153,7 +166,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3663734090544033847}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b275e5f92732148048d7b77e264ac30e, type: 3}
   m_Name: 
@@ -214,7 +227,7 @@ MonoBehaviour:
       m_Value: 0101010101010101010101010101010101010101010101010101010101010101
     m_RaisesCollisionEvents:
       m_Override: 0
-      m_Value: 0
+      m_Value: 1
     m_CustomTags:
       m_Override: 0
       m_Value: 0000000000000000
@@ -236,7 +249,7 @@ MonoBehaviour:
     x: 0
     y: 0
     z: 0
---- !u!114 &2452645803191526013
+--- !u!114 &1876554142610932228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -33,7 +33,7 @@ public class LifeTimeSystem : SystemBase
             {
                 entityCommandBuffer.DestroyEntity(a_entity);
             }
-        }).Run();
+        }).Schedule();
 
         commandBufferSystem.AddJobHandleForProducer(this.Dependency);
     }

@@ -36,6 +36,7 @@ public class TurretSystem : SystemBase
 
                 var input = new RaycastInput
                 {
+                    // Create ray in front of the ship.
                     Start = a_trans.Value + float3(20, 0, 0),
                     End = math.forward(a_rot.Value) * 200 + a_trans.Value,
                     Filter = new CollisionFilter
@@ -50,7 +51,10 @@ public class TurretSystem : SystemBase
                 if (collisionWorld.CastRay(input, out raycastHit))
                 {
                     Entity entity = entityCommandBuffer.Instantiate(a_turretData.entityPrefab);
-                    entityCommandBuffer.SetComponent<Translation>(entity, a_trans);
+                    Translation newTranslation = a_trans;
+                    newTranslation.Value = a_trans.Value + (math.forward(a_rot.Value) * 20);
+
+                    entityCommandBuffer.SetComponent<Translation>(entity, newTranslation);
                     entityCommandBuffer.SetComponent<Rotation>(entity, a_rot);
                     
                     // Set turret on cooldown.

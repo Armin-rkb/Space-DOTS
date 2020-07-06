@@ -8,6 +8,7 @@ using Unity.Transforms;
 // Derives from Component system, this will only use the main thread.
 public class SeekBehaviorSystem2 : SystemBase
 {
+    /*
     protected override void OnStartRunning()
     {
         Unity.Mathematics.Random rand = new Unity.Mathematics.Random((uint)UnityEngine.Random.Range(1, 1000000));
@@ -18,6 +19,7 @@ public class SeekBehaviorSystem2 : SystemBase
             GetNewTarget(ref a_seekData, rand.NextFloat3(-a_seekData.targetMaxRange, a_seekData.targetMaxRange));
         }).Run();
     }
+    */
 
     protected override void OnUpdate()
     {

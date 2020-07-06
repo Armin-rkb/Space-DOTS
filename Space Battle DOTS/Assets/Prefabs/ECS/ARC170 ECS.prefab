@@ -11,11 +11,13 @@ GameObject:
   - component: {fileID: 1014121917996365086}
   - component: {fileID: 5655153120867883828}
   - component: {fileID: 1034259720885784044}
+  - component: {fileID: -5013226282037394805}
   - component: {fileID: -6968967972809296727}
-  - component: {fileID: 3569668747535246537}
   - component: {fileID: 511828690041546131}
   - component: {fileID: 6522916026959786939}
   - component: {fileID: -4108161774300491977}
+  - component: {fileID: -5337325903285458579}
+  - component: {fileID: 1712299950633308789}
   m_Layer: 0
   m_Name: ARC170 ECS
   m_TagString: Untagged
@@ -85,6 +87,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6476127865704302320}
   m_Mesh: {fileID: -2635301951972046923, guid: 3d03000ebba10f94696faa7a9cf7b0d8, type: 3}
+--- !u!114 &-5013226282037394805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6476127865704302320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02422492d1724284aa1a690072acffb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-6968967972809296727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,23 +119,10 @@ MonoBehaviour:
     y: 0
     z: 0
   targetPos:
-    x: 100
-    y: 100
-    z: 100
-  targetMaxRange: 500
---- !u!114 &3569668747535246537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6476127865704302320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea7d7495833204790ba1d3a8755397f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ConversionMode: 0
+    x: 0
+    y: 0
+    z: 500
+  targetMaxRange: 1000
 --- !u!114 &511828690041546131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +222,7 @@ MonoBehaviour:
     m_Template: {fileID: 0}
     m_IsTrigger:
       m_Override: 0
-      m_Value: 1
+      m_Value: 0
     m_Friction:
       m_Override: 0
       m_Value:
@@ -240,7 +241,7 @@ MonoBehaviour:
       m_Value: 0101010101010101010101010101010101010101010101010101010101010101
     m_RaisesCollisionEvents:
       m_Override: 0
-      m_Value: 0
+      m_Value: 1
     m_CustomTags:
       m_Override: 0
       m_Value: 0000000000000000
@@ -259,6 +260,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityPrefab: {fileID: 3663734090544033847, guid: f84916bed76687b47b960968b9698d4e,
     type: 3}
-  fireRate: 0.5
+  fireRate: 0.75
   fireDistance: 200
   timer: 0
+--- !u!114 &-5337325903285458579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6476127865704302320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9325df11331ef0469ce992f3f9f7b5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  isDead: 0
+--- !u!114 &1712299950633308789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6476127865704302320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7d7495833204790ba1d3a8755397f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ConversionMode: 0
